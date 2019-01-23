@@ -11,7 +11,8 @@ def palindrome?(number)
 end
 
 def sequential?(number)
-
+  sequences = number.to_s.chars.map(&:to_i).each_cons(2)
+  sequences.all? { |a,b| b == a + 1 } || sequences.all? { |a,b| b == a - 1 }
 end
 
 # "Interesting" Numbers
@@ -25,3 +26,6 @@ end
 # The digits match one of the values in the awesome_phrases array
 # † For incrementing sequences, 0 should come after 9, and not before 1, as in 7890.
 # ‡ For decrementing sequences, 0 should come after 1, and not before 9, as in 3210.
+
+# p sequential?(123456)
+# p sequential?(987654)
