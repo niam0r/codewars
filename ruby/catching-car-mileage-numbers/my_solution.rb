@@ -1,11 +1,13 @@
 def is_interesting(num, awesome_phrases)
+  return 0 if num < 100
+
   if awesome_phrases.include?(num) || palindrome?(num) || sequential?(num) || num.=~(/\d0+/)
     2
+  elsif is_interesting(num + 1, awesome_phrases) || is_interesting(num + 2, awesome_phrases)
+    1
+  else
+    0
   end
-
-  # returns 2 if the number is "interesting" (see below)
-  # returns 1 if an interesting number occurs within the next two miles
-  # returns 0 if the number is not interesting.
 end
 
 def palindrome?(number)
