@@ -1,5 +1,7 @@
-def is_interesting(number, awesome_phrases)
-
+def is_interesting(num, awesome_phrases)
+  if awesome_phrases.include?(num) || palindrome?(num) || sequential?(num) || num.=~(/\d0+/)
+    2
+  end
 
   # returns 2 if the number is "interesting" (see below)
   # returns 1 if an interesting number occurs within the next two miles
