@@ -1,5 +1,17 @@
 def is_interesting(number, awesome_phrases)
 
+
+  # returns 2 if the number is "interesting" (see below)
+  # returns 1 if an interesting number occurs within the next two miles
+  # returns 0 if the number is not interesting.
+end
+
+def palindrome?(number)
+  number.to_s == number.to_s.reverse
+end
+
+def sequential?(number)
+
 end
 
 # "Interesting" Numbers
