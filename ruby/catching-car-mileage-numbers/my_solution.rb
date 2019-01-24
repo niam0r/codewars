@@ -1,30 +1,36 @@
 require "minitest/autorun"
 
 def is_interesting(num, awesome_phrases)
-  return 0 if num < 100
+  return 0 if num < 98
+  return 1 if num >= 98 && num < 100
 
-  if awesome_phrases.include?(num) || palindrome?(num) || sequential?(num) || num.=~(/\d0+/)
+  if awesome_phrases.include?(num) || interesting(num)
     2
-  elsif is_interesting(num + 1, awesome_phrases) || is_interesting(num + 2, awesome_phrases)
+  elsif awesome_phrases.include?(num + 1) || interesting(num + 1)
+    1
+  elsif awesome_phrases.include?(num + 2) || interesting(num + 2)
     1
   else
     0
   end
 end
 
-def palindrome?(number)
-  number.to_s == number.to_s.reverse
+def interesting?(num)
+  same_digits?(num) || palindrome?(num) || sequential?(num) || (num + 2).=~(/\d0+/)
 end
 
-def sequential?(number)
-  sequences = number.to_s.chars.map(&:to_i).each_cons(2)
+def same_digits?(num)
+  num.to_s.chars.all? { |char| num.to_s.chars.first == char  }
+end
+
+def palindrome?(num)
+  num.to_s == num.to_s.reverse
+end
+
+def sequential?(num)
+  sequences = num.to_s.chars.map(&:to_i).each_cons(2)
   sequences.all? { |a,b| b == a + 1 } || sequences.all? { |a,b| b == a - 1 }
 end
-
-def digit_and_all_zeros?(number)
-
-end
-
 
 class Test < Minitest::Test
   describe "Basic inputs" do
@@ -39,17 +45,7 @@ class Test < Minitest::Test
   end
 end
 
-# "Interesting" Numbers
-# Interesting numbers are 3-or-more digit numbers that meet one or more of the following criteria:
 
-# Any digit followed by all zeros: 100, 90000
-# Every digit is the same number: 1111
-# The digits are sequential, incementing†: 1234
-# The digits are sequential, decrementing‡: 4321
-# The digits are a palindrome: 1221 or 73837
-# The digits match one of the values in the awesome_phrases array
-# † For incrementing sequences, 0 should come after 9, and not before 1, as in 7890.
-# ‡ For decrementing sequences, 0 should come after 1, and not before 9, as in 3210.
+# p is_interesting(98, [])
 
-# p sequential?(123456)
-# p sequential?(987654)
+p same_digits?(11113)
