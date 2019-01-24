@@ -1,5 +1,3 @@
-require "minitest/autorun"
-
 def is_interesting(num, awesome_phrases)
   return 0 if num < 98
   return 1 if num >= 98 && num < 100
@@ -18,7 +16,7 @@ def interesting?(num, awesome_phrases)
 end
 
 def same_digits?(num)
-  num.to_s.chars.all? { |char| num.to_s.chars.first == char  }
+  num.to_s.chars.all? { |char| num.to_s.chars.first == char }
 end
 
 def palindrome?(num)
@@ -27,19 +25,6 @@ end
 
 def sequential?(num)
   sequences = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]]
-  possible_sequences = sequences.map{ |seq| seq.each_cons(num.to_s.length).map(&:join) }.flatten
+  possible_sequences = sequences.map { |seq| seq.each_cons(num.to_s.length).map(&:join) }.flatten
   possible_sequences.include?(num.to_s)
 end
-
-# class Test < Minitest::Test
-#   describe "Basic inputs" do
-#     it "should work, dangit!" do
-#       assert_equal(is_interesting(3, [1337, 256]),     0);
-#       assert_equal(is_interesting(1336, [1337, 256]),  1);
-#       assert_equal(is_interesting(1337, [1337, 256]),  2);
-#       assert_equal(is_interesting(11208, [1337, 256]), 0);
-#       assert_equal(is_interesting(11209, [1337, 256]), 1);
-#       assert_equal(is_interesting(11211, [1337, 256]), 2);
-#     end
-#   end
-# end
