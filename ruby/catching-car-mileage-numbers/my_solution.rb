@@ -1,3 +1,5 @@
+require "minitest/autorun"
+
 def is_interesting(num, awesome_phrases)
   return 0 if num < 100
 
@@ -17,6 +19,24 @@ end
 def sequential?(number)
   sequences = number.to_s.chars.map(&:to_i).each_cons(2)
   sequences.all? { |a,b| b == a + 1 } || sequences.all? { |a,b| b == a - 1 }
+end
+
+def digit_and_all_zeros?(number)
+
+end
+
+
+class Test < Minitest::Test
+  describe "Basic inputs" do
+    it "should work, dangit!" do
+      assert_equal(is_interesting(3, [1337, 256]),     0);
+      assert_equal(is_interesting(1336, [1337, 256]),  1);
+      assert_equal(is_interesting(1337, [1337, 256]),  2);
+      assert_equal(is_interesting(11208, [1337, 256]), 0);
+      assert_equal(is_interesting(11209, [1337, 256]), 1);
+      assert_equal(is_interesting(11211, [1337, 256]), 2);
+    end
+  end
 end
 
 # "Interesting" Numbers
