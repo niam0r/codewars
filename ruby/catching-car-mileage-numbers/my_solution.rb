@@ -14,7 +14,7 @@ def is_interesting(num, awesome_phrases)
 end
 
 def interesting?(num, awesome_phrases)
-  awesome_phrases.include?(num) || same_digits?(num) || palindrome?(num) || sequential?(num) || num.to_s.=~(/\d0+/)
+  awesome_phrases.include?(num) || same_digits?(num) || palindrome?(num) || sequential?(num) || num.to_s.=~(/^\d0+/)
 end
 
 def same_digits?(num)
@@ -44,6 +44,14 @@ end
 # end
 
 
-p is_interesting(100, [])
+# p interesting?(11208, [1337, 256])
+# p same_digits?(11208)
+# p palindrome?(11208)
+p sequential?(11208)
+
+# p is_interesting(11208, [1337, 256])
+
+# p is_interesting(11209, [1337, 256])
+# p is_interesting(11211, [1337, 256])
 
 # p same_digits?(11113)
