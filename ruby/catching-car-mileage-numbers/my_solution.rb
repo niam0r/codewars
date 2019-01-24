@@ -26,8 +26,9 @@ def palindrome?(num)
 end
 
 def sequential?(num)
-  sequences = num.to_s.chars.map(&:to_i).each_cons(2)
-  sequences.all? { |a,b| b == a + 1 } || sequences.all? { |a,b| b == a - 1 }
+  sequences = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]]
+  possible_sequences = sequences.map{ |seq| seq.each_cons(num.size - 2).map(&:join) }.flatten
+  possible_sequences.include?(num.to_s)
 end
 
 # class Test < Minitest::Test
@@ -47,7 +48,7 @@ end
 # p interesting?(11208, [1337, 256])
 # p same_digits?(11208)
 # p palindrome?(11208)
-p sequential?(11208)
+p sequential?(987654)
 
 # p is_interesting(11208, [1337, 256])
 
