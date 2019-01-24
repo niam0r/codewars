@@ -27,7 +27,7 @@ end
 
 def sequential?(num)
   sequences = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]]
-  possible_sequences = sequences.map{ |seq| seq.each_cons(num.size - 2).map(&:join) }.flatten
+  possible_sequences = sequences.map{ |seq| seq.each_cons(num.to_s.length).map(&:join) }.flatten
   possible_sequences.include?(num.to_s)
 end
 
@@ -43,16 +43,3 @@ end
 #     end
 #   end
 # end
-
-
-# p interesting?(11208, [1337, 256])
-# p same_digits?(11208)
-# p palindrome?(11208)
-p sequential?(987654)
-
-# p is_interesting(11208, [1337, 256])
-
-# p is_interesting(11209, [1337, 256])
-# p is_interesting(11211, [1337, 256])
-
-# p same_digits?(11113)
