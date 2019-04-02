@@ -1,8 +1,7 @@
 def is_interesting(num, awesome_phrases)
   return 0 if num < 98
-  return 1 if num >= 98 && num < 100
 
-  if interesting?(num, awesome_phrases)
+  if num >= 100 && interesting?(num, awesome_phrases)
     2
   elsif interesting?(num + 1, awesome_phrases) || interesting?(num + 2, awesome_phrases)
     1
@@ -24,12 +23,5 @@ def palindrome?(num)
 end
 
 def sequential?(num)
-  "1234567890".include?(num.to_s) || "9876543210".include?(num.to_s)
+  '1234567890'.include?(num.to_s) || '9876543210'.include?(num.to_s)
 end
-
-# def sequential?(num)
-#   sequences = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]]
-#   possible_sequences = sequences.map { |seq| seq.each_cons(num.to_s.length).map(&:join) }.flatten
-#   possible_sequences.include?(num.to_s)
-# end
-
