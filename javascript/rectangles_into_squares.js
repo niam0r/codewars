@@ -18,6 +18,18 @@ function sqInRect(lng, wdth) {
 }
 
 
+function sqInRect(lng, wdth) {
+  if(lng === wdth) return null;
+
+  const arr = [];
+  while(lng > 0 && wdth > 0) {
+    arr.push(lng > wdth ? wdth : lng);
+    lng > wdth ? lng -= wdth : wdth -= lng;
+  }
+  return arr;
+}
+
+
 
 console.log(sqInRect(5, 3)) // [3, 2, 1, 1]
 console.log(sqInRect(3, 5)) // [3, 2, 1, 1]
