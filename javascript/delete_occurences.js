@@ -1,5 +1,20 @@
 function deleteNth(arr,n){
-  // ...
+  const counts = {};
+  arr.forEach(num => counts[num] = counts[num] ? counts[num] += 1 : 1);
+
+  arr.reverse()
+
+  Object.keys(counts).forEach((key) => {
+    while (counts[key] > n ) {
+      let index = arr.findIndex(el => el === key);
+      arr.splice(index, 1);
+      counts[key] -= 1;
+    }
+  })
+
+  arr.reverse();
+
+  return arr;
 }
 
 console.log(deleteNth([20,37,20,21], 1)) // [20,37,21]
