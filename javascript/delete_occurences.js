@@ -6,15 +6,13 @@ function deleteNth(arr,n){
 
   Object.keys(counts).forEach((key) => {
     while (counts[key] > n ) {
-      let index = arr.findIndex(el => el === key);
+      let index = arr.findIndex(el => el === parseInt(key));
       arr.splice(index, 1);
       counts[key] -= 1;
     }
   })
 
-  arr.reverse();
-
-  return arr;
+  return arr.reverse();
 }
 
 console.log(deleteNth([20,37,20,21], 1)) // [20,37,21]
