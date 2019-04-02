@@ -15,5 +15,13 @@ function deleteNth(arr,n){
   return arr.reverse();
 }
 
+function deleteNth(arr,x) {
+  var counts = {};
+  return arr.filter(function(n) {
+    counts[n] = (counts[n]||0) + 1;
+    return counts[n] <= x;
+  });
+}
+
 console.log(deleteNth([20,37,20,21], 1)) // [20,37,21]
 console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3)) // [1, 1, 3, 3, 7, 2, 2, 2]
