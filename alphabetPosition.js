@@ -1,5 +1,5 @@
 function alphabetPosition(text) {
-  let onlyLetters = text.replace(/(\W)/, '');
+  let onlyLetters = text.replace(/^[a-z]|\'/, '').toLowerCase();
   return onlyLetters;
 }
 
