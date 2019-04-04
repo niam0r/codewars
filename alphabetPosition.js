@@ -1,6 +1,10 @@
 function alphabetPosition(text) {
-  let onlyLetters = text.replace(/^[a-z]|\'/, '').toLowerCase();
-  return onlyLetters;
+  return text
+    .toLowerCase()
+    .split('')
+    .map(char => char.charCodeAt(0) - 96)
+    .filter(code => code >= 1 && code <= 26)
+    .join(' ')
 }
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));
