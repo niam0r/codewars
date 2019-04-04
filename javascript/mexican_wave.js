@@ -1,33 +1,8 @@
-// function wave(str){
-//   const result = [];
-//   if (str === '') return [];
-
-//   const leadingSpaces = str.match(/^\s/) ? str.match(/^\s/).join() : '';
-
-//   const letters = str.replace(/\s/g, '').length;
-
-//   for (let i = 0; i < letters; i++) {
-//     let word = str.toLowerCase().replace(/^\s/, '');
-//     let index = i;
-//     if (word.slice(0, i).match(/\s/g)) {
-//       index += word.slice(0, i).match(/\s/g).length;
-//     }
-//     const waved =
-//       leadingSpaces +
-//       word.substring(0, index) +
-//       word.charAt(index).toUpperCase() +
-//       word.substring(index + 1);
-
-//     result.push(waved);
-//   }
-
-//   console.log(result)
-//   return result;
-// }
-
 function wave(str){
   const result = [];
   if (str === '') return [];
+
+  const leadingSpaces = str.match(/^\s/) ? str.match(/^\s/).join() : '';
 
   const lettersCount = str.replace(/\s/g, '').length;
 
@@ -38,7 +13,7 @@ function wave(str){
 
     let word = str.replace(/^\s/, '');
     if (word.slice(0, i).match(/\s/g)) {
-      index += word.slice(0, i).match(/\s/g).length;
+      index += word.slice(0, i).match(/\s/g).length - 1;
     }
     const waved =
       leadingSpaces +
