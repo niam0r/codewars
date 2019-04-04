@@ -8,18 +8,24 @@ function wave(str){
 
   const characters = str.split();
 
+  let spacesCount = 0
+
   for (let i = 0; i < lettersCount; i++) {
     let index = i;
 
     let word = str.replace(/^\s/, '');
-    if (word.slice(0, i).match(/\s/g)) {
-      index += word.slice(0, i).match(/\s/g).length - 1;
+
+    if (word[i] === ' ') {
+      i += (1 + spacesCount);
+      spacesCount += 1;
     }
+
     const waved =
       leadingSpaces +
-      word.substring(0, index) +
-      word.charAt(index).toUpperCase() +
-      word.substring(index + 1);
+      word.substring(0, i) +
+      word.charAt(i).toUpperCase() +
+
+      word.substring(i + 1);
 
     result.push(waved);
   }
