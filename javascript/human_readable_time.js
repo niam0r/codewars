@@ -1,11 +1,17 @@
 function humanReadable(seconds) {
-  let hours = seconds % 3600;
-  seconds -= hours * 3600;
+  var hours = 0;
+  var minutes = 0;
 
-  let minutes = seconds % 60;
-  seconds -= minutes * 60;
+  if (seconds >= 3600) {
+    hours = Math.floor(seconds / 3600);
+    seconds = seconds - (hours * 3600);
+  }
 
-  console.log(`${format(hours)}:${format(minutes)}:${format(seconds)}`)
+  if (seconds >= 60) {
+    minutes = Math.floor(seconds / 60);
+    seconds = seconds - (minutes * 60);
+  }
+
   return `${format(hours)}:${format(minutes)}:${format(seconds)}`
 }
 
