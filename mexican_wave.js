@@ -3,21 +3,14 @@ function wave(str){
   if (str === '') return [];
 
   const times = str.replace(/\s/g, '').length;
-
-  for (let i = 0; i <= times; i++) {
-    result.push(str.toLowerCase());
+  for (let i = 0; i < times; i++) {
+    let word = str.toLowerCase();
+    const waved = word.substring(0, i) + word.charAt(i).toUpperCase() + word.substring(i + 1);
+    result.push(waved);
   }
 
-  result.map((word, i) => {
-    console.log(word)
-    console.log(i)
-    const letters = word.split('');
-    console.log(letters)
-    letters[i].toUpperCase();
-    return letters.join();
-  })
-
-  console.log(result)
+  // console.log(result)
+  return result;
 }
 
 wave("hello")
