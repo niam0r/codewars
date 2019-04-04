@@ -1,3 +1,15 @@
+function wave(str){
+  const result = [];
+
+  str.split('').forEach((char, index) => {
+    if (/[a-z]/.test(char)) {
+      result.push(str.slice(0, index) + char.toUpperCase() + str.slice(index + 1));
+    }
+  });
+
+  return result;
+}
+
 function wave(str) {
   const result = [];
   if (str === '') return [];
