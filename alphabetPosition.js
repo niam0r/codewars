@@ -1,10 +1,9 @@
 function alphabetPosition(text) {
   return text
     .toLowerCase()
-    .split('')
-    .map(char => char.charCodeAt(0) - 96)
-    .filter(code => code >= 1 && code <= 26)
-    .join(' ')
+    .match(/[a-z]/gi)
+    .map(char => char.charCodeAt() - 96)
+    .join(' ');
 }
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));
