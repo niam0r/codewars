@@ -9,7 +9,7 @@ function wave(str) {
   for (let i = 0; i < (lettersCount + spacesCount); i += 1) {
     const word = str.replace(/^\s/, '');
 
-    if (word[i] === ' ') {
+    while (word[i] === ' ') {
       spacesCount += 1;
       i += 1;
     }
@@ -26,14 +26,14 @@ function wave(str) {
 }
 
 
-// wave("hello")
+wave("hello")
 // ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
-// wave("codewars")
+wave("codewars")
 // ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"]
-// wave("")
+wave("")
 // [];
-// wave("two words")
+wave("two words")
 // ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"];
-// wave(" gap ")s
+wave(" gap ")
 // [" Gap ", " gAp ", " gaP "];
 wave("this is a few words");
