@@ -1,18 +1,7 @@
 function humanReadable(seconds) {
-  var hours = 0;
-  var minutes = 0;
-
-  if (seconds >= 3600) {
-    hours = Math.floor(seconds / 3600);
-    seconds = seconds - (hours * 3600);
-  }
-
-  if (seconds >= 60) {
-    minutes = Math.floor(seconds / 60);
-    seconds = seconds - (minutes * 60);
-  }
-
-  return `${format(hours)}:${format(minutes)}:${format(seconds)}`
+  return format(parseInt(seconds / 3600)) + ":" +
+         format(parseInt(seconds / 60 % 60)) + ":" +
+         format(seconds % 60)
 }
 
 const format = input => input < 10 ? `0${input}` : input;
