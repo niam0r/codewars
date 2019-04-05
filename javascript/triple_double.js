@@ -1,10 +1,14 @@
 function tripledouble(num1, num2) {
-  const tripleMatch = num1.toString().match(/(\d)\1\1/);
-  const doubleMatch = num2.toString().match(/(\d)\1/);
+  const tripleMatches = num1.toString().match(/(\d)\1\1/g);
+  const doubleMatches = num2.toString().match(/(\d)\1/g);
 
-  if (!tripleMatch || !doubleMatch) { return 0; }
+  if (!tripleMatches || !doubleMatches) { return 0; }
 
-  return tripleMatch[0].slice(0, 2) === doubleMatch[0] ? 1 : 0;
+  const match = tripleMatches.some((triple) => {
+    return doubleMatches.some(double => triple.slice(0, 2) === double)
+  })
+
+  return match ? 1 : 0;
 }
 
 
