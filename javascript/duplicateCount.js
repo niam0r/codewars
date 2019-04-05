@@ -1,10 +1,8 @@
-function duplicateCount(text){
+function duplicateCount(text) {
   const characters = text.toLowerCase().split('');
   const counts = {};
-  console.log(characters)
   characters.forEach(char => counts[char] = counts[char] ? counts[char] + 1 : 1);
-
-  return Object.values(characters).filter(val => val > 1).length;
+  return Object.values(counts).filter(val => val > 1).length;
 }
 
 duplicateCount("") // 0
